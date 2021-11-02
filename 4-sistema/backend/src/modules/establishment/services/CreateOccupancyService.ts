@@ -40,7 +40,8 @@ class CreateOccupancyService {
 
 
     await this.establishmentRepository.save({
-      ...establishment,
+      id: establishment.id,
+      cnpj: establishment.cnpj,
       occupancy_id: occupancy.id,
     });
 
