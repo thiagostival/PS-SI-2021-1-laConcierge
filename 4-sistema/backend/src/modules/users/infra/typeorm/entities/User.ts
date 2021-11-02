@@ -21,6 +21,12 @@ class User {
   email: string;
 
   @Column()
+  tel: string;
+
+  @Column()
+  type: 'client' | 'establishment';
+
+  @Column()
   @Exclude()
   password: string;
 

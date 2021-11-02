@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 
-import IUsersTokensRepository from '@modules/users/repositories/IUsersTokensRepository';
+import IUsersTokensRepository from '../../../repositories/IUsersTokensRepository';
 
 import UserToken from '../entities/UserToken';
 

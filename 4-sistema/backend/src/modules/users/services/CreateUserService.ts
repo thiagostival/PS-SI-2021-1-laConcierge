@@ -1,6 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 
-import AppError from '@shared/errors/AppError';
+import AppError from '../../../shared/errors/AppError';
 import IUsersRepository from '../repositories/IUsersRepository';
 
 import User from '../infra/typeorm/entities/User';
@@ -9,6 +9,8 @@ interface IRequest {
   name: string;
   email: string;
   password: string;
+  type: 'client' | 'establishment';
+  tel: string;
 }
 
 @injectable()
@@ -18,7 +20,13 @@ class CreateUserService {
     private usersRepository: IUsersRepository,
   ) {}
 
-  public async execute({ name, email, password }: IRequest): Promise<User> {
+  public async execute({
+    name,
+    email,
+    password,
+    type,
+    tel,
+  }: IRequest): Promise<User> {
     const checkUserExists = await this.usersRepository.findByEmail(email);
 
     if (checkUserExists) {
@@ -29,6 +37,8 @@ class CreateUserService {
       name,
       email,
       password,
+      type,
+      tel,
     });
 
     return user;
