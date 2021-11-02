@@ -32,7 +32,7 @@ usersRouter.post(
       }),
       birth_date: Joi.string().when('type', {
         is: 'client',
-        then: Joi.string(),
+        then: Joi.string().required(),
       }),
     },
   }),

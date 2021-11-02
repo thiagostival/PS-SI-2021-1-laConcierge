@@ -12,6 +12,9 @@ import ClientRepository from '../../modules/users/infra/typeorm/repositories/Cli
 import IEstablishmentRepository from '../../modules/users/repositories/IEstablishmentRepository';
 import EstablishmentRepository from '../../modules/users/infra/typeorm/repositories/EstablishmentRepository';
 
+import IOccupancyRepository from '../../modules/establishment/repositories/IOccupancyRepository';
+import OccupancyRepository from '../../modules/establishment/infra/typeorm/repositories/OccupancyRepository';
+
 container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   delay(() => UsersRepository),
@@ -23,4 +26,9 @@ container.registerSingleton<IClientRepository>(
 container.registerSingleton<IEstablishmentRepository>(
   'EstablishmentRepository',
   delay(() => EstablishmentRepository),
+);
+
+container.registerSingleton<IOccupancyRepository>(
+  'OccupancyRepository',
+  delay(() => OccupancyRepository),
 );

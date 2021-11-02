@@ -1,6 +1,7 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Not, Repository } from 'typeorm';
 
 import ICreateEstablishment from '../../../model/ICreateEstablishment';
+import IFindAllEstablishment from '../../../model/IFindAllEstablishment';
 import IEstablishmentRepository from '../../../repositories/IEstablishmentRepository';
 
 import Establishment from '../entities/Establishment';
@@ -13,7 +14,30 @@ class EstablishmentRepository implements IEstablishmentRepository {
   }
 
   public async findById(id: string): Promise<Establishment | undefined> {
-    const establishment = await this.ormRepository.findOne(id);
+    const establishment = await this.ormRepository.findOne(id, {
+      relations: ['occupancy', 'menu', 'user'],
+    });
+
+    return establishment;
+  }
+
+  public async findAllEstablishment({
+    except_user_id,
+  }: IFindAllEstablishment): Promise<Establishment[] | undefined> {
+    let establishment: Establishment[];
+
+    if (except_user_id) {
+      establishment = await this.ormRepository.find({
+        relations: ['occupancy', 'menu', 'user'],
+        where: {
+          id: Not(except_user_id),
+        },
+      });
+    } else {
+      establishment = await this.ormRepository.find({
+        relations: ['occupancy', 'menu', 'user'],
+      });
+    }
 
     return establishment;
   }
@@ -26,6 +50,10 @@ class EstablishmentRepository implements IEstablishmentRepository {
     await this.ormRepository.save(establishment);
 
     return establishment;
+  }
+
+  public async save(establishment: Establishment): Promise<Establishment> {
+    return this.ormRepository.save(establishment);
   }
 }
 
