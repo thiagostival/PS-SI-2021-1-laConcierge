@@ -32,7 +32,7 @@ class AuthenticateUserService {
       throw new AppError('Incorrect email/password combination!', 401);
     }
 
-    if (!password) {
+    if (password !== user.password) {
       throw new AppError('Incorrect email/password combination!', 401);
     }
 
