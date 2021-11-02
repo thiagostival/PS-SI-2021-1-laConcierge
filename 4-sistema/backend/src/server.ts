@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import 'reflect-metadata';
 import 'dotenv/config';
 
@@ -11,6 +10,7 @@ import AppError from './shared/errors/AppError';
 import routes from './routes';
 
 import './shared/container';
+import './shared/infra/typeorm';
 
 const app = express();
 
