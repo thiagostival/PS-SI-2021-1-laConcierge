@@ -7,8 +7,8 @@ import establishmentRouter from '../modules/establishment/infra/http/routes/esta
 
 const routes = Router();
 
-routes.use('/users', usersRouter);
-routes.use('/sessions', sessionsRouter);
-routes.use('/establishment', establishmentRouter);
+routes.use('/api/users', usersRouter);
+routes.use('/api/sessions', sessionsRouter);
+routes.use('/api/establishment', establishmentRouter);
 
 export default routes;
