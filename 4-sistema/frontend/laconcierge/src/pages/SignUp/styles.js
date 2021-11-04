@@ -1,7 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-import { shade } from 'polished';
+import styled, { keyframes } from "styled-components";
+import { shade } from "polished";
 
-import list from '../../assets/list.svg';
+import list from "../../assets/list.svg";
 
 export const Container = styled.div`
   height: 100vh;
@@ -60,7 +60,7 @@ export const AnimationContainer = styled.div`
       transition: color 0.2s;
 
       &:hover {
-        color: ${shade(0.2, '#F4EDE8')};
+        color: ${shade(0.2, "#F4EDE8")};
       }
     }
   }
@@ -80,7 +80,7 @@ export const AnimationContainer = styled.div`
     }
 
     &:hover {
-      color: ${shade(0.2, '#ff9000')};
+      color: ${shade(0.2, "#ff9000")};
     }
   }
 `;
@@ -90,4 +90,28 @@ export const Background = styled.div`
   background: url(${list}) no-repeat center;
   background-color: #f2f2f2;
   background-size: auto;
+`;
+
+export const ContainerRadio = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+
+  margin-bottom: 18px;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+`;
+
+export const ContainerType = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
