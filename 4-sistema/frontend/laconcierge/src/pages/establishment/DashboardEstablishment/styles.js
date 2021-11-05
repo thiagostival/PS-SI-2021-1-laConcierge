@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   height: 100%;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Header = styled.header`
+  width: 100%;
   padding: 32px 0;
   background: #28262e;
 `;
@@ -38,7 +43,8 @@ export const Content = styled.div`
   flex-direction: column;
 
   height: 100%;
-  padding: 50px;
+  width: 1120px;
+  padding-top: 5px;
 
   overflow: auto;
 `;

@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   height: 100vh;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Header = styled.header`
+  width: 100%;
   max-height: 100px;
   padding: 32px 0;
   background: #28262e;
@@ -42,9 +47,9 @@ export const Content = styled.div`
 
   overflow-y: auto;
 
-  width: 100%;
+  width: 1120px;
   height: calc(100% - 100px);
-  padding: 50px;
+  padding-top: 5px;
 `;
 
 export const Poster = styled.div`

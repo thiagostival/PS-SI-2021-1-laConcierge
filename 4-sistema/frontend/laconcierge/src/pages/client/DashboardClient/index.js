@@ -19,7 +19,6 @@ import {
   HeaderContent,
   Title,
   Wrapper,
-  WrapperContent,
 } from "./styles";
 
 // HOOKS
@@ -101,7 +100,7 @@ export const DashboardClient = () => {
         {loading && <Loading />}
 
         {!loading && (
-          <WrapperContent>
+          <>
             {!!establishment.length && establishment.map((item) => (
               <Establishment
                 key={item.id}
@@ -116,7 +115,7 @@ export const DashboardClient = () => {
             {!establishment.length && (
               <span>Nao encontrado</span>
             )}
-          </WrapperContent>
+          </>
         )}
       </Content>
     </Wrapper>

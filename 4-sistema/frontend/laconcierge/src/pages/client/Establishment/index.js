@@ -38,7 +38,6 @@ export function Establishment() {
     try {
       const { data } = await api.get(`establishment/${est_id}`);
 
-      console.log({ data });
       setData(data);
       setLoading(false);
     } catch (err) {
