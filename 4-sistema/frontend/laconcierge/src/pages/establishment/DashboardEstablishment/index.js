@@ -40,9 +40,7 @@ export const DashboardEstablishment = () => {
     async (d) => {
       try {
         setSaving(true);
-        const { data } = await api.post(`/establishment/occupancy`, d);
-
-        console.log({ data });
+        await api.post(`/establishment/occupancy`, d);
 
         setEstablishment((oldValue) => ({ ...oldValue, occupancy: d }));
         setSaving(false);
@@ -63,8 +61,6 @@ export const DashboardEstablishment = () => {
   const handleLoad = useCallback(async () => {
     try {
       const { data } = await api.get(`establishment/${user.id}`);
-
-      console.log({ data });
 
       setEstablishment(data);
       setLoading(false);

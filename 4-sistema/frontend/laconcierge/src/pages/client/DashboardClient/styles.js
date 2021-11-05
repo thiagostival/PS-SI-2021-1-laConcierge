@@ -3,9 +3,14 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   height: 100%;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Header = styled.header`
+  width: 100%;
   padding: 32px 0;
   background: #28262e;
 `;
@@ -41,8 +46,10 @@ export const HeaderContent = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 20px;
 
   height: 100%;
+  width: 1120px;
   padding: 50px;
 
   overflow: auto;
@@ -50,10 +57,8 @@ export const Content = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
-
-export const WrapperContent = styled.div``;
 
 export const Establishment = styled.button`
   display: flex;
